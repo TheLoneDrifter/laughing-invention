@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const currentYear = new Date().getFullYear();
+  const [fileSize, setFileSize] = useState<string>('');
+
+  useEffect(() => {
+    const fetchFileSize = async () => {
+      try {
+        const response = await fetch('./stalked.zip', { method: 'HEAD' });
+        if (response.ok) {
+          const size = response.headers.get('content-length');
+          if (size) {
+            const fileSizeInBytes = parseInt(size);
+            const fileSizeInMB = (fileSizeInBytes / (1024 * 1024)).toFixed(1);
+            setFileSize(`${fileSizeInMB} MB`);
+          }
+        }
+      } catch (error) {
+        // Fallback if file doesn't exist or network error
+        setFileSize('Unknown size');
+      }
+    };
+
+    fetchFileSize();
+  }, []);
 
   const handleBannerClick = () => {
     window.open('https://enderhost.co/', '_blank');
@@ -61,7 +83,7 @@ function App() {
                   <h3 className="text-xl font-semibold mb-2 ios-text-secondary">Windows</h3>
                   <p className="ios-text-tertiary mb-4">Recommended for most players</p>
                   <div className="text-sm ios-text-tertiary">
-                    Version 0.1b • Size: ~38 MB
+                    Version 0.1b • Size: {fileSize || 'Calculating...'}
                   </div>
                 </div>
               </div>
