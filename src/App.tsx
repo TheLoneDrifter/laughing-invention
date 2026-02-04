@@ -5,7 +5,7 @@ function App() {
   const currentYear = new Date().getFullYear();
 
   const handleBannerClick = () => {
-    window.open('https://galactiq.net/', '_blank');
+    window.open('https://enderhost.co/', '_blank');
   };
 
   const handleDownload = () => {
@@ -166,13 +166,13 @@ function App() {
               Want to Host Your Own Server?
             </h2>
             <p className="text-xl mb-8 ios-text-secondary">
-              Get professional server hosting at Galactiq.net
+              Get professional server hosting at EnderHost
             </p>
             <button
               onClick={handleBannerClick}
               className="ios-button text-lg px-12 py-4 text-white font-semibold rounded-2xl shadow-ios-card hover:shadow-ios-card-hover transform hover:scale-105 transition-all duration-300"
             >
-              Start Hosting at Galactiq.net
+              Start Hosting at EnderHost
             </button>
           </div>
         </section>
@@ -185,7 +185,7 @@ function App() {
             © {currentYear} VoltacceptYT
           </p>
           <p className="ios-text-tertiary text-sm">
-            Server hosting provided by <a href="https://galactiq.net/" target="_blank" rel="noopener noreferrer" className="ios-text-secondary hover:text-ios-primary transition-colors duration-300">Galactiq.net</a>
+            Server hosting provided by <a href="https://enderhost.co/" target="_blank" rel="noopener noreferrer" className="ios-text-secondary hover:text-ios-primary transition-colors duration-300">EnderHost</a>
           </p>
         </div>
       </footer>
